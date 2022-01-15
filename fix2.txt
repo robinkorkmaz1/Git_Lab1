@@ -1,0 +1,104 @@
+1.
+git init -b main
+Initialized empty Git repository in /Users/robinkorkmaz/Desktop/Lab1/.git/
+
+2.
+git add *
+
+git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   README.md
+
+3.
+git commit -m "Initial commit"
+[main (root-commit) 23349af] Initial commit
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+
+4.
+git checkout -b feature1
+Switched to a new branch 'feature1'
+
+5.
+git add *
+
+git commit -m "Commit to feature1"
+[feature1 3aa2012] Commit to feature1
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+6.
+git checkout main                 
+Switched to branch 'main'
+
+git add *
+
+git commit -m "Commit to main"
+[main f2cd477] Commit to main
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+7.
+git merge feature1   
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+git add *
+
+git commit -m "Solve the merge conflict"
+[main c140e2c] Solve the merge conflict
+
+8.
+git tag extinct
+
+9.
+git reset --hard HEAD^                  
+HEAD is now at f2cd477 Commit to main
+
+10.
+git branch feature2
+
+11.
+git add *
+
+git commit -m "Commit to main, begin with capital"
+[main 61171f7] Commit to main, begin with capital
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+12.
+git checkout feature2
+Switched to branch 'feature2'
+
+git add fix1.txt
+
+git commit -m "Commit to feature2, add fix1.txt"  
+[feature2 a25c651] Commit to feature2, add fix1.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fix1.txt
+
+git add fix2.txt
+
+git commit -m "Commit to feature2, add fix2.txt"
+[feature2 b4bffc6] Commit to feature2, add fix2.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fix2.txt
+
+13.
+git checkout main
+
+14.
+git log --oneline feature2
+b4bffc6 (feature2) Commit to feature2, add fix2.txt
+a25c651 Commit to feature2, add fix1.txt
+f2cd477 Commit to main
+23349af Initial commit
+
+git cherry-pick b4bffc6
+[main 4ef2046] Commit to feature2, add fix2.txt
+ Date: Sat Jan 15 21:38:15 2022 +0100
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fix2.txt
